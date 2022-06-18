@@ -1,59 +1,47 @@
-import 'package:app/src/commons/initializer.dart';
+import 'package:app/src/common/initializer.dart';
 import 'package:app/src/settings/settings.provider.dart';
-import 'package:app/src/settings/settings.service.dart';
+import 'package:app/src/settings/settings.screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:provider/single_child_widget.dart';
 
-import 'commons/utils.dart';
-
-/// The Widget that configures your application.
-class MyAppWrapper extends StatelessWidget {
-  const MyAppWrapper({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MultiProvider(providers: [
-      ChangeNotifierProvider(
-        create: (_) => SettingsProvider(SettingsService()),
-      ),
-    ], child: const MyApp());
-  }
-}
+import 'common/screens/error.screen.dart';
+import 'common/screens/splash.screen.dart';
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
+  MyApp({Key? key}) : super(key: key);
+  final List<SingleChildWidget> globalProviders = [
+    ChangeNotifierProvider(
+      create: (_) => SettingsProvider(),
+    ),
+  ];
   @override
   Widget build(BuildContext context) {
-    SettingsProvider sc = Provider.of<SettingsProvider>(context);
-
     return MaterialApp(
       home: FutureBuilder(
         future: Initializer.instance.setup(),
         builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-          if (snapshot.hasData) {
-            return Scaffold(
-              body: Center(
-                child: Column(children: const [Text('Settings')]),
-              ),
-            );
+          if (snapshot.hasError) {
+            return ErrorScreen(snapshot.error.toString());
+          } else if (snapshot.connectionState == ConnectionState.waiting) {
+            return const SplashScreen();
           } else {
-            return Scaffold(
-              body: Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(60.0),
-                  child: Column(
-                    children: const [
-                      Text('initializing...'),
-                      CircularProgressIndicator(),
-                    ],
-                  ),
-                ),
-              ),
+            return MultiProvider(
+              providers: globalProviders,
+              child: const BootWidget(),
             );
           }
         },
       ),
     );
+  }
+}
+
+class BootWidget extends StatelessWidget {
+  const BootWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const SettingsScreen();
   }
 }
