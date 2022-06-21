@@ -4,7 +4,7 @@ import 'package:app/src/common/environment.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-import 'enums/connection_status.dart';
+import '../enums/connection_status.dart';
 
 class Utils {
   static final Utils _singleton = Utils._internal();

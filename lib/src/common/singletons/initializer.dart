@@ -1,9 +1,8 @@
-import 'package:app/src/settings/settings_provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 
-import '../../firebase_options.dart';
-import 'environment.dart';
+import '../../../firebase_options.dart';
+import '../environment.dart';
 
 class Initializer {
   static final Initializer _singleton = Initializer._internal();

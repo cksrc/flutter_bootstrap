@@ -1,14 +1,11 @@
 import 'dart:async';
 
-import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:app/src/common/singletons/connectivity_service.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../common/enums/connection_status.dart';
-import '../common/environment.dart';
-import '../common/utils.dart';
+import '../common/singletons/utils.dart';
 import 'settings_provider.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -22,21 +19,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
   // from firebase remoteConfig. '_markDirty' is a dummy parameter, only
   // to force flutter to repaint the screen.
   Future<bool> _markDirty = Future.value(true);
-  late StreamSubscription<ConnectivityResult> _checkConnectivitySubscription;
   @override
   void initState() {
     super.initState();
-    _checkConnectivitySubscription = Connectivity()
-        .onConnectivityChanged
-        .listen((ConnectivityResult result) async {
-      Future.delayed(
-              Duration(
-                seconds: int.parse(Environment.internetPreCheckTimerSeconds),
-              ),
-              Utils.instance.updateConnectionStatus)
-          .then((value) =>
-              Utils.instance.showInternetConnectivitySnackBar(value, context));
-    });
+    ConnectivityService.instance.monitor(context);
   }
 
   @override
@@ -100,6 +86,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   void dispose() {
     super.dispose();
-    _checkConnectivitySubscription.cancel();
+    ConnectivityService.instance.dispose();
   }
 }

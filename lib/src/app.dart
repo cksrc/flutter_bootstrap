@@ -1,4 +1,4 @@
-import 'package:app/src/common/initializer.dart';
+import 'package:app/src/common/singletons/initializer.dart';
 import 'package:app/src/settings/settings_provider.dart';
 import 'package:app/src/settings/settings_screen.dart';
 import 'package:flutter/material.dart';
