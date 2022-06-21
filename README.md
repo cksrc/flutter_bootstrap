@@ -16,5 +16,5 @@ A Flutter bootstrap project on Steroids.
 
   - Use remoteConfig from Firebase ([setup](https://firebase.google.com/docs/remote-config/get-started?platform=flutter))
 
-- Utilities to check:
-  - Internet connectivity
+- Internet connectivity checker (based on [connectivity_plus](https://pub.dev/packages/connectivity_plus))
+- [http client](https://pub.dev/packages/http/install)

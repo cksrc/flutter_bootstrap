@@ -1,12 +1,12 @@
 import 'package:app/src/common/initializer.dart';
-import 'package:app/src/settings/settings.provider.dart';
-import 'package:app/src/settings/settings.screen.dart';
+import 'package:app/src/settings/settings_provider.dart';
+import 'package:app/src/settings/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
-import 'common/screens/error.screen.dart';
-import 'common/screens/splash.screen.dart';
+import 'common/screens/error_screen.dart';
+import 'common/screens/splash_screen.dart';
 
 class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);

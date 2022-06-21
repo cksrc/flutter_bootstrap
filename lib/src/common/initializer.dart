@@ -1,4 +1,4 @@
-import 'package:app/src/settings/settings.provider.dart';
+import 'package:app/src/settings/settings_provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 

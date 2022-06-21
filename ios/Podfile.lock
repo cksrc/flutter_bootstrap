@@ -1,4 +1,7 @@
 PODS:
+  - connectivity_plus (0.0.1):
+    - Flutter
+    - ReachabilitySwift
   - Firebase/CoreOnly (8.15.0):
     - FirebaseCore (= 8.15.0)
   - Firebase/RemoteConfig (8.15.0):
@@ -51,8 +54,10 @@ PODS:
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
   - PromisesObjC (2.1.0)
+  - ReachabilitySwift (5.0.0)
 
 DEPENDENCIES:
+  - connectivity_plus (from `.symlinks/plugins/connectivity_plus/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - firebase_remote_config (from `.symlinks/plugins/firebase_remote_config/ios`)
   - Flutter (from `Flutter`)
@@ -69,8 +74,11 @@ SPEC REPOS:
     - GoogleUtilities
     - nanopb
     - PromisesObjC
+    - ReachabilitySwift
 
 EXTERNAL SOURCES:
+  connectivity_plus:
+    :path: ".symlinks/plugins/connectivity_plus/ios"
   firebase_core:
     :path: ".symlinks/plugins/firebase_core/ios"
   firebase_remote_config:
@@ -79,6 +87,7 @@ EXTERNAL SOURCES:
     :path: Flutter
 
 SPEC CHECKSUMS:
+  connectivity_plus: 413a8857dd5d9f1c399a39130850d02fe0feaf7e
   Firebase: 5f8193dff4b5b7c5d5ef72ae54bb76c08e2b841d
   firebase_core: 318de541b0e61d3f24262982a3f0b54afe72439b
   firebase_remote_config: 5c7e3511505272482125c1c84774137fe7f5fe35
@@ -92,6 +101,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 99b6f43f9e1044bd87a95a60beff28c2c44ddb72
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
 
 PODFILE CHECKSUM: fe0e1ee7f3d1f7d00b11b474b62dd62134535aea
 
