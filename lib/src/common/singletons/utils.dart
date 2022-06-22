@@ -10,7 +10,13 @@ class Utils {
   static final Utils _singleton = Utils._internal();
   Utils._internal();
   static Utils get instance => _singleton;
-  ConnectionStatus previousConnectionStatus = ConnectionStatus.unset;
+  ConnectionStatus _previousConnectionStatus = ConnectionStatus.unset;
+  ConnectionStatus _connectionStatus = ConnectionStatus.unset;
+
+  get connectionStatus {
+    ConnectionStatus copy = _connectionStatus;
+    return copy;
+  }
 
   Future<bool> _isInternetAvailable() async {
     try {
@@ -36,33 +42,34 @@ class Utils {
 
     // If previously we were offline and we can access internet,
     // return `ConnectionStatus.backOnline`.
-    if (previousConnectionStatus == ConnectionStatus.offline) {
+    if (_previousConnectionStatus == ConnectionStatus.offline) {
       bool isConnected = await _isInternetAvailable();
       if (isConnected) {
         returnedConnectionStatus = ConnectionStatus.backOnline;
-        previousConnectionStatus = ConnectionStatus.online;
+        _previousConnectionStatus = ConnectionStatus.online;
       }
     }
     // If previously we were online and we cannot access internet,
     // return `ConnectionStatus.lostConnection`.
-    else if (previousConnectionStatus == ConnectionStatus.online) {
+    else if (_previousConnectionStatus == ConnectionStatus.online) {
       bool isConnected = await _isInternetAvailable();
       if (!isConnected) {
         returnedConnectionStatus = ConnectionStatus.lostConnection;
-        previousConnectionStatus = ConnectionStatus.offline;
+        _previousConnectionStatus = ConnectionStatus.offline;
       }
     }
     // Else if we do not have previous connection status; check if we are offline
-    else if (previousConnectionStatus == ConnectionStatus.unset) {
+    else if (_previousConnectionStatus == ConnectionStatus.unset) {
       bool isConnected = await _isInternetAvailable();
       if (!isConnected) {
         returnedConnectionStatus = ConnectionStatus.offline;
-        previousConnectionStatus = ConnectionStatus.offline;
+        _previousConnectionStatus = ConnectionStatus.offline;
       } else {
         returnedConnectionStatus = ConnectionStatus.online;
-        previousConnectionStatus = ConnectionStatus.online;
+        _previousConnectionStatus = ConnectionStatus.online;
       }
     }
+    _connectionStatus = returnedConnectionStatus;
     return returnedConnectionStatus;
   }
 
@@ -91,6 +98,7 @@ class Utils {
         );
         break;
       default:
+        break;
     }
   }
 }

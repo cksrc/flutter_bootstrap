@@ -1,10 +1,13 @@
 import 'dart:async';
 
-import 'package:app/src/common/singletons/connectivity_service.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../common/enums/connection_status.dart';
+import '../common/environment.dart';
+import '../common/providers/connectivity_provider.dart';
 import '../common/singletons/utils.dart';
 import 'settings_provider.dart';
 
@@ -19,18 +22,37 @@ class _SettingsScreenState extends State<SettingsScreen> {
   // from firebase remoteConfig. '_markDirty' is a dummy parameter, only
   // to force flutter to repaint the screen.
   Future<bool> _markDirty = Future.value(true);
+  late StreamSubscription<ConnectivityResult> _subscription;
+
   @override
   void initState() {
     super.initState();
-    ConnectivityService.instance.monitor(context);
+
+    _subscription = Connectivity()
+        .onConnectivityChanged
+        .listen((ConnectivityResult result) async {
+      Future.delayed(
+              Duration(
+                seconds: int.parse(Environment.internetPreCheckTimerSeconds),
+              ),
+              Utils.instance.updateConnectionStatus)
+          .then((connectionStatus) {
+        Utils.instance
+            .showInternetConnectivitySnackBar(connectionStatus, context);
+
+        if (connectionStatus == ConnectionStatus.backOnline) {
+          setState(() {
+            _markDirty = Future.value(true);
+          });
+        }
+      });
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     var settingsProvider =
         Provider.of<SettingsProvider>(context, listen: false);
-
-    //WidgetsBinding.instance.addPostFrameCallback((_) async {});
 
     return Scaffold(
       appBar: AppBar(
@@ -39,8 +61,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
       body: Padding(
           padding: const EdgeInsets.all(16),
           child: FutureBuilder(
-            future: settingsProvider
-                .loadSettings(Utils.instance.previousConnectionStatus),
+            future:
+                settingsProvider.loadSettings(Utils.instance.connectionStatus),
             builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
               return RefreshIndicator(
                 onRefresh: _pullRefresh,
@@ -85,7 +107,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   @override
   void dispose() {
+    _subscription.cancel();
     super.dispose();
-    ConnectivityService.instance.dispose();
   }
 }
