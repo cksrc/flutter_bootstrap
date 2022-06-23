@@ -1,8 +1,6 @@
-import 'package:app/src/common/providers/connectivity_provider.dart';
 import 'package:app/src/common/singletons/initializer.dart';
 import 'package:app/src/settings/settings_provider.dart';
 import 'package:app/src/settings/settings_screen.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
@@ -11,7 +9,7 @@ import 'common/screens/error_screen.dart';
 import 'common/screens/splash_screen.dart';
 
 class MyApp extends StatefulWidget {
-  MyApp({Key? key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -20,7 +18,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   final List<SingleChildWidget> globalProviders = [
     ChangeNotifierProvider(create: (_) => SettingsProvider()),
-    ChangeNotifierProvider(create: (_) => ConnectivityProvider()),
   ];
 
   @override
@@ -42,12 +39,6 @@ class _MyAppState extends State<MyApp> {
         },
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    //TODO Close stream
   }
 }
 
