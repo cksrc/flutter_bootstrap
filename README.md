@@ -18,3 +18,4 @@ A Flutter bootstrap project on Steroids.
 
 - Internet connectivity checker (based on [connectivity_plus](https://pub.dev/packages/connectivity_plus))
 - [http client](https://pub.dev/packages/http/install)
+- Form creation via [flutter_form_builder](https://pub.dev/packages/flutter_form_builder)

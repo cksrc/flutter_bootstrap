@@ -1,7 +1,7 @@
 import 'dart:async';
 
+import 'package:app/src/settings/settings_widget.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -58,17 +58,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
         title: const Text('Settings'),
       ),
       body: Padding(
-          padding: const EdgeInsets.all(16),
-          child: FutureBuilder(
-            future:
-                settingsProvider.loadSettings(Utils.instance.connectionStatus),
-            builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-              return RefreshIndicator(
-                onRefresh: _pullRefresh,
-                child: SettingsWidget(snapshot),
-              );
-            },
-          )),
+        padding: const EdgeInsets.all(16),
+        child: FutureBuilder(
+          future:
+              settingsProvider.loadSettings(Utils.instance.connectionStatus),
+          builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+            return SettingsWidget(snapshot, _pullRefresh);
+          },
+        ),
+      ),
     );
   }
 
@@ -82,51 +80,5 @@ class _SettingsScreenState extends State<SettingsScreen> {
   void dispose() {
     _subscription.cancel();
     super.dispose();
-  }
-}
-
-class SettingsWidget extends StatelessWidget {
-  final AsyncSnapshot<dynamic> settingsData;
-  const SettingsWidget(this.settingsData, {Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    if (settingsData.hasError) {
-      var settings = ['Pull down to try again'];
-      return ListView.builder(
-        itemCount: settings.length,
-        itemBuilder: (context, index) {
-          return Text(settings[index]);
-        },
-      );
-    } else if (settingsData.connectionState == ConnectionState.waiting) {
-      return const Center(
-        child: CircularProgressIndicator(),
-      );
-    } else {
-      FirebaseRemoteConfig items = settingsData.data;
-      Map<String, RemoteConfigValue> settings = items.getAll();
-      return SettingsForm(settings);
-    }
-  }
-}
-
-class SettingsForm extends StatefulWidget {
-  final Map<String, RemoteConfigValue> settings;
-  const SettingsForm(this.settings, {Key? key}) : super(key: key);
-
-  @override
-  State<SettingsForm> createState() => _SettingsFormState();
-}
-
-class _SettingsFormState extends State<SettingsForm> {
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: widget.settings.length,
-      itemBuilder: (context, index) {
-        return Text('setting $index');
-      },
-    );
   }
 }

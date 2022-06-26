@@ -30,8 +30,16 @@ class Initializer {
       ),
     );
     await FirebaseRemoteConfig.instance.setDefaults({
-      'internet_connection_check_url': Environment.internetConnectionCheckUrl,
+      'INTERNET_CONNECTION_CHECK_URL': Environment.internetConnectionCheckUrl,
+      'INTERNET_PRE_CHECK_TIMER_SECONDS':
+          Environment.internetPreCheckTimerSeconds,
+      'INTERNET_CHECK_TIMEOUT_SECONDS': Environment.internetCheckTimeoutSeconds,
+      'FIREBASE_REMOTE_CONFIG_FETCH_TIMEOUT_SECONDS':
+          Environment.firebaseRemoteConfigFetchTimeoutSeconds,
+      'FIREBASE_REMOTE_CONFIG_MINIMUM_FETCH_INTERVAL_SECONDS':
+          Environment.firebaseRemoteConfigMinimumFetchIntervalSeconds,
       'API_URL': Environment.internetConnectionCheckUrl,
+      //'USE_MOCK_DATA': Environment
     });
   }
 }

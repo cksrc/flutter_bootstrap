@@ -101,4 +101,8 @@ class Utils {
         break;
     }
   }
+
+  settingsKeyToLabel(String key) {
+    return key.replaceAll('_', ' ').toLowerCase();
+  }
 }
