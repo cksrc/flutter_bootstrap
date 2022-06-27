@@ -16,7 +16,7 @@ Flutter is declarative. This means that when the state of the app changes, the u
 
 ## Common errors
 
-### Error
+### Min firebase version for podfile
 
 `Please specify a platform for this target in your Podfile`
 
@@ -24,4 +24,16 @@ To use firebase you need to update app/ios/Podfile from minimum supported ios 9 
 
 `platform :ios, '10.0'`
 
-`https://stackoverflow.com/a/72117620/447738`
+https://stackoverflow.com/a/72117620/447738
+
+### Java 11 is needed for Android 12 (Android emulator)
+
+- Make sure you have installed the latest Android studio that comes with Java 11. Flutter by default uses the JDK that comes with Android studio for the emulator.
+
+1. In Android studio check the 'about' from the menu and make sure it is running Java 11.
+2. Run `flutter doctor -v` to confirm that flutter is using the Java 11 via Android Studio.
+3. Confirm the same by running `./gradlew --version`
+4. Run from your console
+   `java --version` to confirm system version
+   https://stackoverflow.com/a/67002271/447738
+5. Update build.gradle contents to reference JavaVersion.VERSION_11 instead of JavaVersion.VERSION_1_8

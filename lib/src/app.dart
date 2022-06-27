@@ -1,6 +1,7 @@
 import 'package:app/src/common/singletons/initializer.dart';
 import 'package:app/src/settings/settings_provider.dart';
 import 'package:app/src/settings/settings_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
@@ -47,6 +48,15 @@ class BootWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SettingsScreen();
+    return StreamBuilder<User?>(
+      stream: FirebaseAuth.instance.authStateChanges(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        } else {
+          return const SettingsScreen();
+        }
+      },
+    );
   }
 }
