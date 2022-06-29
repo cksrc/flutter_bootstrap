@@ -13,7 +13,8 @@ class Initializer {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
-    return await setupConfig();
+    await setupConfig();
+    return true;
   }
 
   Future<void> setupConfig() async {
