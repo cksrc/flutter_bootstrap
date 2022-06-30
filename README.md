@@ -7,6 +7,13 @@ A Flutter bootstrap project on Steroids.
 1. Git clone
 2. _Run `flutterfire configure` to reconfigure firebase for new project_
 
+```
+After this initial running of flutterfire configure, you need to re-run the command any time that you:
+Start supporting a new platform in your Flutter app.
+Start using a new Firebase service or product in your Flutter app, especially if you start using sign-in with Google, Crashlytics, Performance Monitoring, or Realtime Database.
+Re-running the command ensures that your Flutter app's Firebase configuration is up-to-date and (for Android) automatically adds any required Gradle plugins to your app.
+```
+
 ## Contains
 
 - State management with [Provider](https://pub.dev/packages/provider)

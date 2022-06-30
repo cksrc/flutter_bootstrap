@@ -1,7 +1,3 @@
-import 'package:app/src/common/singletons/initializer.dart';
-import 'package:app/src/login/login_screen.dart';
-import 'package:app/src/settings/settings_provider.dart';
-import 'package:app/src/settings/settings_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -9,6 +5,10 @@ import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
 import 'common/screens/error_screen.dart';
+import 'common/singletons/initializer.dart';
+import 'login/login_screen.dart';
+import 'settings/settings_provider.dart';
+import 'settings/settings_screen.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -41,11 +41,10 @@ class BootWidget extends StatelessWidget {
           return ErrorScreen(snapshot.error.toString());
         } else if (snapshot.connectionState == ConnectionState.waiting) {
           //Native Splash Screen should be shown
-          return CircularProgressIndicator();
+          return const CircularProgressIndicator();
         } else {
           // Done with the setup, hide the native splash screen
           FlutterNativeSplash.remove();
-
           return MultiProvider(
             providers: globalProviders,
             child: const HomeWidget(),

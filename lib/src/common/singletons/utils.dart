@@ -1,14 +1,14 @@
 import 'dart:io';
 import 'dart:async';
-import 'package:app/src/common/environment.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import '../enums/connection_status.dart';
+import '../environment.dart';
 
 class Utils {
-  static final Utils _singleton = Utils._internal();
-  Utils._internal();
+  static final Utils _singleton = Utils._constructor();
+  Utils._constructor();
   static Utils get instance => _singleton;
   ConnectionStatus _previousConnectionStatus = ConnectionStatus.unset;
   ConnectionStatus _connectionStatus = ConnectionStatus.unset;

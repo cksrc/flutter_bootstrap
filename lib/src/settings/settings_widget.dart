@@ -1,6 +1,7 @@
-import 'package:app/src/settings/settings_form.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
+
+import 'settings_form.dart';
 
 class SettingsWidget extends StatelessWidget {
   final AsyncSnapshot<dynamic> settingsData;

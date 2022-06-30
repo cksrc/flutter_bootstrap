@@ -1,13 +1,14 @@
 import 'dart:async';
-import 'package:app/src/common/singletons/utils.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 
 import '../environment.dart';
+import 'utils.dart';
 
 class ConnectivityService {
-  static final ConnectivityService _singleton = ConnectivityService._internal();
-  ConnectivityService._internal();
+  static final ConnectivityService _singleton =
+      ConnectivityService._constructor();
+  ConnectivityService._constructor();
   static ConnectivityService get instance => _singleton;
   late StreamSubscription<ConnectivityResult> _checkConnectivitySubscription;
 

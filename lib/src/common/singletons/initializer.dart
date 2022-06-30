@@ -5,8 +5,8 @@ import '../../../firebase_options.dart';
 import '../environment.dart';
 
 class Initializer {
-  static final Initializer _singleton = Initializer._internal();
-  Initializer._internal();
+  static final Initializer _singleton = Initializer._constructor();
+  Initializer._constructor();
   static Initializer get instance => _singleton;
 
   Future setup() async {

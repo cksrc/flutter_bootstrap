@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:app/src/settings/settings_widget.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -9,6 +8,7 @@ import '../common/enums/connection_status.dart';
 import '../common/environment.dart';
 import '../common/singletons/utils.dart';
 import 'settings_provider.dart';
+import 'settings_widget.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
