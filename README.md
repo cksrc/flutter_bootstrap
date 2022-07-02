@@ -24,7 +24,7 @@ Re-running the command ensures that your Flutter app's Firebase configuration is
   - Use remoteConfig from Firebase ([setup](https://firebase.google.com/docs/remote-config/get-started?platform=flutter))
 
 - Social Authentication
-  - Google ([instructions](https://www.youtube.com/watch?v=Q00Foa8CiDk&ab_channel=CodeX))
+  - Google
 - Internet connectivity checker (based on [connectivity_plus](https://pub.dev/packages/connectivity_plus))
 - [http client](https://pub.dev/packages/http/install)
 - Form creation via [flutter_form_builder](https://pub.dev/packages/flutter_form_builder)

@@ -1,3 +1,4 @@
+import 'package:app/src/authentication/google_auth_service.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -36,7 +37,16 @@ class _SettingsFormState extends State<SettingsForm> {
             ),
             child: IntrinsicHeight(
               child: Column(
-                children: _getFormWidgetListFromSettings(widget.settings),
+                children: [
+                  ..._getFormWidgetListFromSettings(widget.settings),
+                  ElevatedButton.icon(
+                    onPressed: () {
+                      GoogleAuthService.instance.logout();
+                    },
+                    icon: const Icon(Icons.abc),
+                    label: const Text('logout'),
+                  ),
+                ],
               ),
             ),
           ),

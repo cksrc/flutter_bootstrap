@@ -37,3 +37,12 @@ https://stackoverflow.com/a/72117620/447738
    `java --version` to confirm system version
    https://stackoverflow.com/a/67002271/447738
 5. Update build.gradle contents to reference JavaVersion.VERSION_11 instead of JavaVersion.VERSION_1_8
+
+### Social Auth
+
+**Watch before**
+([instructions](https://www.youtube.com/watch?v=Q00Foa8CiDk&ab_channel=CodeX))
+
+- Avoid using bundle names in firebase with dashes (-). They are not acceptable for android and it becomes messy.
+- The flutter google_sign_in plugin requires manual setup. You need to manually copy paste `google-services.json` to the `android\app` folder and `GoogleService-Info.plist` to the `app\ios folder.`
+- For Android you must run `./gradlew signingReport` to generate a SHA fingerprint to paste into firebase console.

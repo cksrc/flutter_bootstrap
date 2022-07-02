@@ -11,6 +11,7 @@ class Initializer {
 
   Future setup() async {
     await Firebase.initializeApp(
+      name: 'flutter-bootstrap-cksrc',
       options: DefaultFirebaseOptions.currentPlatform,
     );
     await setupConfig();

@@ -63,7 +63,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '70059001977',
     projectId: 'flutter-bootstrap-cksrc',
     storageBucket: 'flutter-bootstrap-cksrc.appspot.com',
-    iosClientId: '70059001977-0vr4l4d8nd7rqpu6r2369mf160oknfsm.apps.googleusercontent.com',
-    iosBundleId: 'com.example.app',
+    iosClientId:
+        '70059001977-0vr4l4d8nd7rqpu6r2369mf160oknfsm.apps.googleusercontent.com',
+    iosBundleId: 'com.flutter-bootstrap.cksrc',
   );
 }

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 import '../authentication/google_auth_service.dart';
+import '../common/exceptions/authentication_exception.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -12,13 +11,26 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(32),
-        child: ElevatedButton.icon(
-          onPressed: () async {
-            await GoogleAuthService.instance.googleLogin();
-            print('oook');
-          },
-          icon: const Icon(Icons.stop_circle_sharp),
-          label: const Text('Google login'),
+        child: Center(
+          child: ElevatedButton.icon(
+            onPressed: () async {
+              try {
+                await GoogleAuthService.instance.googleLogin();
+              } on AuthenticationException catch (e) {
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  content:
+                      Text('Google Authentication failed (${e.toString()})'),
+                ));
+              } catch (e) {
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  content: Text(
+                      'Something went wrong while trying to login with Google.'),
+                ));
+              }
+            },
+            icon: const Icon(Icons.stop_circle_sharp),
+            label: const Text('Google login'),
+          ),
         ),
       ),
     );
