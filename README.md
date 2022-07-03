@@ -23,6 +23,7 @@ Re-running the command ensures that your Flutter app's Firebase configuration is
 
   - Use remoteConfig from Firebase ([setup](https://firebase.google.com/docs/remote-config/get-started?platform=flutter))
 
+- [font_awesome_flutter](https://pub.dev/packages/font_awesome_flutter/install)
 - Social Authentication
   - Google
 - Internet connectivity checker (based on [connectivity_plus](https://pub.dev/packages/connectivity_plus))

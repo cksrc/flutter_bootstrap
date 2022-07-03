@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">flutter-bootstrap-cksrc</string>
+    <string name="facebook_app_id">981648522510343</string>
+    <string name="fb_login_protocol_scheme">fb1418029498553151</string>
+    <string name="facebook_client_token">cca4def2b9123dfea74c16cf74a36252</string>
+</resources>

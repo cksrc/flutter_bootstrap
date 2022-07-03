@@ -46,3 +46,6 @@ https://stackoverflow.com/a/72117620/447738
 - Avoid using bundle names in firebase with dashes (-). They are not acceptable for android and it becomes messy.
 - The flutter google_sign_in plugin requires manual setup. You need to manually copy paste `google-services.json` to the `android\app` folder and `GoogleService-Info.plist` to the `app\ios folder.`
 - For Android you must run `./gradlew signingReport` to generate a SHA fingerprint to paste into firebase console.
+
+- For facebook check [this link](https://petercoding.com/firebase/2021/06/14/using-facebook-authentication-with-firebase-in-flutter/).
+  Podfile should have `platform :ios, '11.0'`

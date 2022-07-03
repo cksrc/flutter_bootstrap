@@ -1,9 +1,20 @@
 PODS:
+  - connectivity_plus_macos (0.0.1):
+    - FlutterMacOS
+    - ReachabilitySwift
+  - Firebase/Auth (8.15.0):
+    - Firebase/CoreOnly
+    - FirebaseAuth (~> 8.15.0)
   - Firebase/CoreOnly (8.15.0):
     - FirebaseCore (= 8.15.0)
   - Firebase/RemoteConfig (8.15.0):
     - Firebase/CoreOnly
     - FirebaseRemoteConfig (~> 8.15.0)
+  - firebase_auth (3.3.20):
+    - Firebase/Auth (~> 8.15.0)
+    - Firebase/CoreOnly (~> 8.15.0)
+    - firebase_core
+    - FlutterMacOS
   - firebase_core (1.17.1):
     - Firebase/CoreOnly (~> 8.15.0)
     - FlutterMacOS
@@ -14,6 +25,11 @@ PODS:
     - FlutterMacOS
   - FirebaseABTesting (8.15.0):
     - FirebaseCore (~> 8.0)
+  - FirebaseAuth (8.15.0):
+    - FirebaseCore (~> 8.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
+    - GoogleUtilities/Environment (~> 7.7)
+    - GTMSessionFetcher/Core (~> 1.5)
   - FirebaseCore (8.15.0):
     - FirebaseCoreDiagnostics (~> 8.0)
     - GoogleUtilities/Environment (~> 7.7)
@@ -39,21 +55,35 @@ PODS:
     - GoogleUtilities/Environment (~> 7.7)
     - nanopb (< 2.30910.0, >= 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleUtilities/AppDelegateSwizzler (7.7.0):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
   - GoogleUtilities/Environment (7.7.0):
     - PromisesObjC (< 3.0, >= 1.2)
   - GoogleUtilities/Logger (7.7.0):
     - GoogleUtilities/Environment
+  - GoogleUtilities/Network (7.7.0):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
   - "GoogleUtilities/NSData+zlib (7.7.0)"
+  - GoogleUtilities/Reachability (7.7.0):
+    - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (7.7.0):
     - GoogleUtilities/Logger
+  - GTMSessionFetcher/Core (1.7.2)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
     - nanopb/encode (= 2.30908.0)
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
   - PromisesObjC (2.1.0)
+  - ReachabilitySwift (5.0.0)
 
 DEPENDENCIES:
+  - connectivity_plus_macos (from `Flutter/ephemeral/.symlinks/plugins/connectivity_plus_macos/macos`)
+  - firebase_auth (from `Flutter/ephemeral/.symlinks/plugins/firebase_auth/macos`)
   - firebase_core (from `Flutter/ephemeral/.symlinks/plugins/firebase_core/macos`)
   - firebase_remote_config (from `Flutter/ephemeral/.symlinks/plugins/firebase_remote_config/macos`)
   - FlutterMacOS (from `Flutter/ephemeral`)
@@ -62,16 +92,23 @@ SPEC REPOS:
   trunk:
     - Firebase
     - FirebaseABTesting
+    - FirebaseAuth
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseInstallations
     - FirebaseRemoteConfig
     - GoogleDataTransport
     - GoogleUtilities
+    - GTMSessionFetcher
     - nanopb
     - PromisesObjC
+    - ReachabilitySwift
 
 EXTERNAL SOURCES:
+  connectivity_plus_macos:
+    :path: Flutter/ephemeral/.symlinks/plugins/connectivity_plus_macos/macos
+  firebase_auth:
+    :path: Flutter/ephemeral/.symlinks/plugins/firebase_auth/macos
   firebase_core:
     :path: Flutter/ephemeral/.symlinks/plugins/firebase_core/macos
   firebase_remote_config:
@@ -80,10 +117,13 @@ EXTERNAL SOURCES:
     :path: Flutter/ephemeral
 
 SPEC CHECKSUMS:
+  connectivity_plus_macos: f6e86fd000e971d361e54b5afcadc8c8fa773308
   Firebase: 5f8193dff4b5b7c5d5ef72ae54bb76c08e2b841d
+  firebase_auth: d2ed21427d1d00f08c82c876916895ecb98cc1f1
   firebase_core: 7b87364e2d1eae70018a60698e89e7d6f5320bad
   firebase_remote_config: 16f81b3a687c93b955130a0446969eb3559345d0
   FirebaseABTesting: 10cbce8db9985ae2e3847ea44e9947dd18f94e10
+  FirebaseAuth: 3e73bf8abf4fbb40f8b421f361f4cc48ee57388c
   FirebaseCore: 5743c5785c074a794d35f2fff7ecc254a91e08b1
   FirebaseCoreDiagnostics: 92e07a649aeb66352b319d43bdd2ee3942af84cb
   FirebaseInstallations: 40bd9054049b2eae9a2c38ef1c3dd213df3605cd
@@ -91,8 +131,10 @@ SPEC CHECKSUMS:
   FlutterMacOS: 57701585bf7de1b3fc2bb61f6378d73bbdea8424
   GoogleDataTransport: 5fffe35792f8b96ec8d6775f5eccd83c998d5a3b
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
+  GTMSessionFetcher: 5595ec75acf5be50814f81e9189490412bad82ba
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 99b6f43f9e1044bd87a95a60beff28c2c44ddb72
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
 
 PODFILE CHECKSUM: c7161fcf45d4fd9025dc0f48a76d6e64e52f8176
 

@@ -6,7 +6,7 @@ import 'package:provider/single_child_widget.dart';
 
 import 'common/screens/error_screen.dart';
 import 'common/singletons/initializer.dart';
-import 'login/login_screen.dart';
+import 'authentication/login_screen.dart';
 import 'settings/settings_provider.dart';
 import 'settings/settings_screen.dart';
 

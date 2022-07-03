@@ -1,7 +1,4 @@
-import 'dart:convert';
-
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import '../common/exceptions/authentication_exception.dart';
@@ -18,7 +15,7 @@ class GoogleAuthService {
     return _user!;
   }
 
-  Future googleLogin() async {
+  Future login() async {
     try {
       final googleUser = await _googleSignIn.signIn();
       if (googleUser == null) {
