@@ -47,5 +47,5 @@ https://stackoverflow.com/a/72117620/447738
 - The flutter google_sign_in plugin requires manual setup. You need to manually copy paste `google-services.json` to the `android\app` folder and `GoogleService-Info.plist` to the `app\ios folder.`
 - For Android you must run `./gradlew signingReport` to generate a SHA fingerprint to paste into firebase console.
 
-- For facebook check [this link](https://petercoding.com/firebase/2021/06/14/using-facebook-authentication-with-firebase-in-flutter/).
+- For facebook check [this tutorial](https://www.youtube.com/watch?v=u8H652UY-L8&ab_channel=RivaanRanawat).
   Podfile should have `platform :ios, '11.0'`
