@@ -49,3 +49,5 @@ https://stackoverflow.com/a/72117620/447738
 
 - For facebook check [this tutorial](https://www.youtube.com/watch?v=u8H652UY-L8&ab_channel=RivaanRanawat).
   Podfile should have `platform :ios, '11.0'`
+
+-

@@ -58,6 +58,13 @@ class LoginScreen extends StatelessWidget {
             ),
             label: const Text('Facebook login'),
           ),
+          ElevatedButton.icon(
+            onPressed: () {
+              GoogleAuthService.instance.logout();
+            },
+            icon: const Icon(Icons.abc),
+            label: const Text('logout'),
+          ),
         ],
       ),
     );

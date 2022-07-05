@@ -25,27 +25,29 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   @override
   void initState() {
-    super.initState();
+    if (mounted) {
+      super.initState();
 
-    _subscription = Connectivity()
-        .onConnectivityChanged
-        .listen((ConnectivityResult result) async {
-      Future.delayed(
-              Duration(
-                seconds: int.parse(Environment.internetPreCheckTimerSeconds),
-              ),
-              Utils.instance.updateConnectionStatus)
-          .then((connectionStatus) {
-        Utils.instance
-            .showInternetConnectivitySnackBar(connectionStatus, context);
+      _subscription = Connectivity()
+          .onConnectivityChanged
+          .listen((ConnectivityResult result) async {
+        Future.delayed(
+                Duration(
+                  seconds: int.parse(Environment.internetPreCheckTimerSeconds),
+                ),
+                Utils.instance.updateConnectionStatus)
+            .then((connectionStatus) {
+          Utils.instance
+              .showInternetConnectivitySnackBar(connectionStatus, context);
 
-        if (connectionStatus == ConnectionStatus.backOnline) {
-          setState(() {
-            _markDirty = Future.value(true);
-          });
-        }
+          if (connectionStatus == ConnectionStatus.backOnline) {
+            setState(() {
+              _markDirty = Future.value(true);
+            });
+          }
+        });
       });
-    });
+    }
   }
 
   @override
@@ -71,14 +73,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   Future<void> _pullRefresh() async {
-    setState(() {
-      _markDirty = Future.value(_markDirty);
-    });
+    if (mounted) {
+      setState(() {
+        _markDirty = Future.value(_markDirty);
+      });
+    }
   }
 
   @override
-  void dispose() {
-    _subscription.cancel();
+  Future<void> dispose() async {
     super.dispose();
+    await _subscription.cancel();
   }
 }
