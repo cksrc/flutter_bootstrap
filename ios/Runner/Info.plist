@@ -23,7 +23,7 @@
 		<key>CFBundleVersion</key>
 		<string>$(FLUTTER_BUILD_NUMBER)</string>
 		<key>LSRequiresIPhoneOS</key>
-		<true/>
+		<true />
 		<key>UILaunchStoryboardName</key>
 		<string>LaunchScreen</string>
 		<key>UIMainStoryboardFile</key>
@@ -42,9 +42,9 @@
 			<string>UIInterfaceOrientationLandscapeRight</string>
 		</array>
 		<key>UIViewControllerBasedStatusBarAppearance</key>
-		<false/>
+		<false />
 		<key>CADisableMinimumFrameDurationOnPhone</key>
-		<true/>
+		<true />
 		<key>CFBundleURLTypes</key>
 		<array>
 			<dict>
@@ -53,10 +53,23 @@
 				<key>CFBundleURLSchemes</key>
 				<array>
 					<string>com.googleusercontent.apps.520493603711-f1bbdhl5eqcitflmcjf94gpmn6m4ucfl</string>
+					<string>fb981648522510343</string>
 				</array>
 			</dict>
 		</array>
+		<key>FacebookAppID</key>
+		<string>981648522510343</string>
+		<key>FacebookClientToken</key>
+		<string>cca4def2b9123dfea74c16cf74a36252</string>
+		<key>FacebookDisplayName</key>
+		<string>Flutter bootstrap</string>
+		<key>LSApplicationQueriesSchemes</key>
+		<array>
+			<string>fbapi</string>
+			<string>fb-messenger-share-api</string>
+		</array>
+
 		<key>UIStatusBarHidden</key>
-		<false/>
+		<false />
 	</dict>
 </plist>

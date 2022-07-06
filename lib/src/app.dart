@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => BootWidget(),
+        SettingsScreen.routeName: (context) => const SettingsScreen(),
       },
     );
   }

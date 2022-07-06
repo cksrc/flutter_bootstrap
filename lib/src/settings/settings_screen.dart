@@ -11,6 +11,7 @@ import 'settings_provider.dart';
 import 'settings_widget.dart';
 
 class SettingsScreen extends StatefulWidget {
+  static const routeName = '/settings';
   const SettingsScreen({Key? key}) : super(key: key);
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
