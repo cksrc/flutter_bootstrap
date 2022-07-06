@@ -1,6 +1,7 @@
-import 'package:app/src/common/exceptions/authentication_exception.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+
+import '../common/exceptions/authentication_exception.dart';
 
 class FacebookAuthService {
   static final FacebookAuthService _singleton =

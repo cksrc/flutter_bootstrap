@@ -27,6 +27,8 @@ dependencies:
   form_builder_validators: ^8.1.1
   google_sign_in: ^5.3.3
   http: ^0.13.4
+  json_annotation: ^4.5.0
+  json_serializable: ^6.2.0
   provider: ^6.0.3
 
 dev_dependencies:
@@ -34,6 +36,7 @@ dev_dependencies:
     sdk: flutter
 
   flutter_lints: ^2.0.0
+  build_runner: ^2.1.11
 
 flutter:
   uses-material-design: true

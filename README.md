@@ -31,3 +31,4 @@ Re-running the command ensures that your Flutter app's Firebase configuration is
 - Form creation via [flutter_form_builder](https://pub.dev/packages/flutter_form_builder)
 - Support for Native splash screen using [flutter_native_splash](https://pub.dev/packages/flutter_native_splash)
   Run `flutter pub run flutter_native_splash:create --path=flutter_native_splash.yaml` to update native code every time you edit `flutter_native_splash.yaml`.
+  - Dynamic json serialzation with [build_runner](https://pub.dev/packages/build_runner), [json_serializable](https://pub.dev/packages/json_serializable) and [json_annotation](https://pub.dev/packages/json_annotation)

@@ -10,6 +10,7 @@ import 'common/singletons/initializer.dart';
 import 'authentication/login_screen.dart';
 import 'settings/settings_provider.dart';
 import 'settings/settings_screen.dart';
+import 'user/user_provider.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -30,6 +31,7 @@ class BootWidget extends StatelessWidget {
   BootWidget({Key? key}) : super(key: key);
   final List<SingleChildWidget> globalProviders = [
     ChangeNotifierProvider(create: (_) => SettingsProvider()),
+    ChangeNotifierProvider(create: (_) => UserProvider()),
   ];
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,9 @@
-import 'package:app/src/authentication/facebook_auth_service.dart';
+import 'package:app/src/user/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 
+import 'facebook_auth_service.dart';
 import 'google_auth_service.dart';
 import '../common/exceptions/authentication_exception.dart';
 
@@ -10,16 +12,18 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    UserProvider userProvider =
+        Provider.of<UserProvider>(context, listen: false);
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          //TOFO: Create dedicated widget for button
           ElevatedButton.icon(
             onPressed: () async {
               try {
                 await GoogleAuthService.instance.login();
+                userProvider.setUser();
               } on AuthenticationException catch (e) {
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                   content:
@@ -41,6 +45,7 @@ class LoginScreen extends StatelessWidget {
             onPressed: () async {
               try {
                 await FacebookAuthService.instance.login();
+                userProvider.setUser();
               } on AuthenticationException catch (e) {
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                   content:
