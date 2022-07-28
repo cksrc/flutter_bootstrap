@@ -41,6 +41,35 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/montserrat/Montserrat-ExtraLight.otf
+          weight: 100
+        - asset: assets/fonts/montserrat/Montserrat-ExtraLightItalic.otf
+          weight: 100
+          style: italic
+        - asset: assets/fonts/montserrat/Montserrat-Light.otf
+          weight: 200
+        - asset: assets/fonts/montserrat/Montserrat-LightItalic.otf
+          weight: 200
+          style: italic
+        - asset: assets/fonts/montserrat/Montserrat-Regular.otf
+          weight: 300
+        - asset: assets/fonts/montserrat/Montserrat-Light.otf
+          weight: 300
+          style: italic
+        - asset: assets/fonts/montserrat/Montserrat-Bold.otf
+          weight: 500
+        - asset: assets/fonts/montserrat/Montserrat-BoldItalic.otf
+          weight: 500
+          style: italic
+        - asset: assets/fonts/montserrat/Montserrat-Black.otf
+          weight: 700
+        - asset: assets/fonts/montserrat/Montserrat-BlackItalic.otf
+          weight: 700
+          style: italic
+
   # Enable generation of localized Strings from arb files.
   generate: true
 

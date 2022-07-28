@@ -10,6 +10,8 @@ import 'common/singletons/initializer.dart';
 import 'authentication/login_screen.dart';
 import 'settings/settings_provider.dart';
 import 'settings/settings_screen.dart';
+import 'themes/dark_theme.dart';
+import 'themes/light_theme.dart';
 import 'user/user_provider.dart';
 
 class MyApp extends StatelessWidget {
@@ -23,6 +25,9 @@ class MyApp extends StatelessWidget {
         '/': (context) => BootWidget(),
         SettingsScreen.routeName: (context) => const SettingsScreen(),
       },
+      theme: LightTheme.instance.theme,
+      darkTheme: DarkTheme.instance.theme,
+      themeMode: ThemeMode.system,
     );
   }
 }
